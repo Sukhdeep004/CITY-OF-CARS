@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Car Specifications Hub - Detailed specs for all vehicles">
+    <title>Car Specifications - City of Cars</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-car-side"></i> CITY OF CARS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">All Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="supercars.html">Supercars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="electric.html">Electric</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wallpapers.html">Wallpapers</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="specs.html">Specs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="parts.html">Parts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="city-cars.html">City Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Car Specifications Hub</h1>
+        <p>Detailed technical specifications for all vehicles</p>
+    </section>
+
+    <!-- Specs Section -->
+    <section class="specs-section py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Ferrari 812 -->
+                <div class="col-md-6 mb-4">
+                    <div class="specs-card">
+                        <img src="./images/ferrai81211.png" alt="Ferrari 812" loading="lazy">
+                        <h3>Ferrari 812 Competizione</h3>
+                        <div class="specs-details">
+                            <p><strong>Engine:</strong> 6.2L V12</p>
+                            <p><strong>Power:</strong> 819 HP</p>
+                            <p><strong>Torque:</strong> 718 Nm</p>
+                            <p><strong>0-100 km/h:</strong> 2.9 seconds</p>
+                            <p><strong>Top Speed:</strong> 340 km/h</p>
+                            <p><strong>Transmission:</strong> 7-Speed Automatic</p>
+                            <p><strong>Fuel Type:</strong> Petrol</p>
+                            <p><strong>Price:</strong> $455,000</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="viewCarModal('Ferrari 812 Competizione')">View Full Details</button>
+                    </div>
+                </div>
+
+                <!-- Lamborghini Revuelto -->
+                <div class="col-md-6 mb-4">
+                    <div class="specs-card">
+                        <img src="./images/lambo-revu.jpg" alt="Lamborghini Revuelto" loading="lazy">
+                        <h3>Lamborghini Revuelto</h3>
+                        <div class="specs-details">
+                            <p><strong>Engine:</strong> 6.5L V12 Hybrid</p>
+                            <p><strong>Power:</strong> 1001 HP</p>
+                            <p><strong>Torque:</strong> 1100 Nm</p>
+                            <p><strong>0-100 km/h:</strong> 2.5 seconds</p>
+                            <p><strong>Top Speed:</strong> 350 km/h</p>
+                            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+                            <p><strong>Fuel Type:</strong> Hybrid</p>
+                            <p><strong>Price:</strong> $550,000</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="viewCarModal('Lamborghini Revuelto')">View Full Details</button>
+                    </div>
+                </div>
+
+                <!-- Porsche 918 Spyder -->
+                <div class="col-md-6 mb-4">
+                    <div class="specs-card">
+                        <img src="./images/918spider.png" alt="Porsche 918 Spyder" loading="lazy">
+                        <h3>Porsche 918 Spyder</h3>
+                        <div class="specs-details">
+                            <p><strong>Engine:</strong> 4.6L V8 Hybrid</p>
+                            <p><strong>Power:</strong> 918 HP</p>
+                            <p><strong>Torque:</strong> 944 Nm</p>
+                            <p><strong>0-100 km/h:</strong> 2.5 seconds</p>
+                            <p><strong>Top Speed:</strong> 345 km/h</p>
+                            <p><strong>Transmission:</strong> 7-Speed Automatic</p>
+                            <p><strong>Fuel Type:</strong> Hybrid</p>
+                            <p><strong>Price:</strong> $845,000</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="viewCarModal('Porsche 918 Spyder')">View Full Details</button>
+                    </div>
+                </div>
+
+                <!-- Tesla Model S Plaid -->
+                <div class="col-md-6 mb-4">
+                    <div class="specs-card">
+                        <img src="./images/tesla_model_ss.jpg" alt="Tesla Model S" loading="lazy">
+                        <h3>Tesla Model S Plaid</h3>
+                        <div class="specs-details">
+                            <p><strong>Motor:</strong> Tri-Motor Electric</p>
+                            <p><strong>Power:</strong> 1020 HP</p>
+                            <p><strong>Torque:</strong> 1420 Nm</p>
+                            <p><strong>0-100 km/h:</strong> 1.99 seconds</p>
+                            <p><strong>Top Speed:</strong> 322 km/h</p>
+                            <p><strong>Range:</strong> 650 km</p>
+                            <p><strong>Fuel Type:</strong> Electric</p>
+                            <p><strong>Price:</strong> $115,000</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="viewCarModal('Tesla Model S')">View Full Details</button>
+                    </div>
+                </div>
+
+                <!-- McLaren 720S -->
+                <div class="col-md-6 mb-4">
+                    <div class="specs-card">
+                        <img src="./images/mclaren720.png" alt="McLaren 720S" loading="lazy">
+                        <h3>McLaren 720S</h3>
+                        <div class="specs-details">
+                            <p><strong>Engine:</strong> 4.0L Twin-Turbo V8</p>
+                            <p><strong>Power:</strong> 720 HP</p>
+                            <p><strong>Torque:</strong> 770 Nm</p>
+                            <p><strong>0-100 km/h:</strong> 2.8 seconds</p>
+                            <p><strong>Top Speed:</strong> 341 km/h</p>
+                            <p><strong>Transmission:</strong> 7-Speed Automatic</p>
+                            <p><strong>Fuel Type:</strong> Petrol</p>
+                            <p><strong>Price:</strong> $315,000</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="viewCarModal('McLaren 720S')">View Full Details</button>
+                    </div>
+                </div>
+
+                <!-- BMW M440i -->
+                <div class="col-md-6 mb-4">
+                    <div class="specs-card">
+                        <img src="./images/bmwm.png" alt="BMW M440i" loading="lazy">
+                        <h3>BMW M440i</h3>
+                        <div class="specs-details">
+                            <p><strong>Engine:</strong> 3.0L Twin-Turbo Inline-6</p>
+                            <p><strong>Power:</strong> 503 HP</p>
+                            <p><strong>Torque:</strong> 564 Nm</p>
+                            <p><strong>0-100 km/h:</strong> 3.9 seconds</p>
+                            <p><strong>Top Speed:</strong> 250 km/h</p>
+                            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+                            <p><strong>Fuel Type:</strong> Petrol</p>
+                            <p><strong>Price:</strong> $95,000</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="viewCarModal('BMW M440i')">View Full Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Tool -->
+    <section class="comparison-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Compare Cars</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <select class="form-select" id="compareCar1">
+                        <option>Select Car 1</option>
+                        <option value="Ferrari 812">Ferrari 812 Competizione</option>
+                        <option value="Lamborghini Revuelto">Lamborghini Revuelto</option>
+                        <option value="Tesla Model S">Tesla Model S Plaid</option>
+                        <option value="McLaren 720S">McLaren 720S</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <select class="form-select" id="compareCar2">
+                        <option>Select Car 2</option>
+                        <option value="Ferrari 812">Ferrari 812 Competizione</option>
+                        <option value="Lamborghini Revuelto">Lamborghini Revuelto</option>
+                        <option value="Tesla Model S">Tesla Model S Plaid</option>
+                        <option value="McLaren 720S">McLaren 720S</option>
+                    </select>
+                </div>
+            </div>
+            <div id="comparisonResult" class="mt-4"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>City of Cars</h5>
+                    <p>Your premier automotive platform</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="specs.html">Specifications</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center text-footer1">
+                <p>&copy; 2024 City of Cars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/specs.js"></script>
+</body>
+</html>

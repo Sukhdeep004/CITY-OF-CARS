@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Supercars Zone - Ultimate performance and luxury vehicles">
+    <title>Supercars Zone - City of Cars</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-car-side"></i> CITY OF CARS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">All Cars</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="supercars.html">Supercars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="electric.html">Electric</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wallpapers.html">Wallpapers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="specs.html">Specs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="parts.html">Parts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="city-cars.html">City Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Supercars Zone</h1>
+        <p>The world's most exclusive hypercars and supercars</p>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="supercarSearch" placeholder="Search supercars...">
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="supercarBrand">
+                        <option value="">All Brands</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="McLaren">McLaren</option>
+                        <option value="Bugatti">Bugatti</option>
+                        <option value="Pagani">Pagani</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary w-100" id="resetFilters">Reset Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supercars Gallery -->
+    <section class="gallery-section py-5">
+        <div class="container">
+            <div class="gallery-grid" id="supercarGallery">
+                <!-- Image prompt: Ferrari SF90 Stradale, hybrid supercar, red, aggressive -->
+                <div class="supercar-item" data-brand="Ferrari">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=400&h=350&fit=crop" alt="Ferrari SF90" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ferrari SF90 Stradale</h3>
+                        <p>1000 HP | 340 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Ferrari SF90 Stradale', 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Lamborghini Sian, hybrid supercar, yellow and black -->
+                <div class="supercar-item" data-brand="Lamborghini">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=350&fit=crop" alt="Lamborghini Sian" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lamborghini Sian</h3>
+                        <p>807 HP | 350 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Lamborghini Sian', 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: McLaren P1, hybrid hypercar, black, sleek design -->
+                <div class="supercar-item" data-brand="McLaren">
+                    <img src="https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=400&h=350&fit=crop" alt="McLaren P1" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>McLaren P1</h3>
+                        <p>904 HP | 350 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('McLaren P1', 'https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Bugatti Bolide, hypercar concept, blue and black, futuristic -->
+                <div class="supercar-item" data-brand="Bugatti">
+                    <img src="https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=400&h=350&fit=crop" alt="Bugatti Bolide" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bugatti Bolide</h3>
+                        <p>1600 HP | 500+ km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Bugatti Bolide', 'https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Pagani Utopia, modern hypercar, blue, exotic design -->
+                <div class="supercar-item" data-brand="Pagani">
+                    <img src="https://images.unsplash.com/photo-1514856949395-839862a464eb?w=400&h=350&fit=crop" alt="Pagani Utopia" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Pagani Utopia</h3>
+                        <p>864 HP | 330 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Pagani Utopia', 'https://images.unsplash.com/photo-1514856949395-839862a464eb?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Koenigsegg Jesko, hypercar, aerodynamic, white -->
+                <div class="supercar-item" data-brand="Koenigsegg">
+                    <img src="https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=400&h=350&fit=crop" alt="Koenigsegg Jesko" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Koenigsegg Jesko</h3>
+                        <p>1280 HP | 330 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Koenigsegg Jesko', 'https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Lamborghini Revuelto, hybrid supercar, yellow, modern -->
+                <div class="supercar-item" data-brand="Lamborghini">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=350&fit=crop" alt="Lamborghini Revuelto" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lamborghini Revuelto</h3>
+                        <p>1001 HP | 350 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Lamborghini Revuelto', 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Ferrari 288 GTO Evoluzione, classic race car, red -->
+                <div class="supercar-item" data-brand="Ferrari">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=400&h=350&fit=crop" alt="Ferrari 288 GTO" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ferrari 288 GTO Evoluzione</h3>
+                        <p>650 HP | 300 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Ferrari 288 GTO Evoluzione', 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: McLaren Speedtail, hypercar, silver, sleek -->
+                <div class="supercar-item" data-brand="McLaren">
+                    <img src="https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=400&h=350&fit=crop" alt="McLaren Speedtail" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>McLaren Speedtail</h3>
+                        <p>1050 HP | 400+ km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('McLaren Speedtail', 'https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Bugatti Chiron, hypercar, black and blue, massive -->
+                <div class="supercar-item" data-brand="Bugatti">
+                    <img src="https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=400&h=350&fit=crop" alt="Bugatti Chiron" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Bugatti Chiron</h3>
+                        <p>1500 HP | 490 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Bugatti Chiron', 'https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Ferrari LaFerrari, hybrid hypercar, red, elegant -->
+                <div class="supercar-item" data-brand="Ferrari">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=400&h=350&fit=crop" alt="Ferrari LaFerrari" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ferrari LaFerrari</h3>
+                        <p>963 HP | 350 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Ferrari LaFerrari', 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Lamborghini Veneno, limited edition, yellow, extreme -->
+                <div class="supercar-item" data-brand="Lamborghini">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=350&fit=crop" alt="Lamborghini Veneno" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lamborghini Veneno</h3>
+                        <p>750 HP | 354 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Lamborghini Veneno', 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Porsche 918 Spyder, hybrid supercar, white, sleek -->
+                <div class="supercar-item" data-brand="Porsche">
+                    <img src="https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=400&h=350&fit=crop" alt="Porsche 918 Spyder" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Porsche 918 Spyder</h3>
+                        <p>918 HP | 345 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Porsche 918 Spyder', 'https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: McLaren 720S, supercar, orange, modern -->
+                <div class="supercar-item" data-brand="McLaren">
+                    <img src="https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=400&h=350&fit=crop" alt="McLaren 720S" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>McLaren 720S</h3>
+                        <p>720 HP | 341 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('McLaren 720S', 'https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Ferrari Enzo, classic supercar, red, legendary -->
+                <div class="supercar-item" data-brand="Ferrari">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=400&h=350&fit=crop" alt="Ferrari Enzo" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ferrari Enzo</h3>
+                        <p>660 HP | 350 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Ferrari Enzo', 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Lamborghini Murciélago, supercar, dark, classic -->
+                <div class="supercar-item" data-brand="Lamborghini">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=350&fit=crop" alt="Lamborghini Murciélago" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lamborghini Murciélago</h3>
+                        <p>640 HP | 340 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Lamborghini Murciélago', 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Pagani Zonda, hypercar, silver, carbon fiber -->
+                <div class="supercar-item" data-brand="Pagani">
+                    <img src="https://images.unsplash.com/photo-1514856949395-839862a464eb?w=400&h=350&fit=crop" alt="Pagani Zonda" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Pagani Zonda</h3>
+                        <p>650 HP | 350 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Pagani Zonda', 'https://images.unsplash.com/photo-1514856949395-839862a464eb?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Koenigsegg CCXR, hypercar, black, aggressive -->
+                <div class="supercar-item" data-brand="Koenigsegg">
+                    <img src="https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=400&h=350&fit=crop" alt="Koenigsegg CCXR" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Koenigsegg CCXR</h3>
+                        <p>1018 HP | 435 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Koenigsegg CCXR', 'https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Ferrari 812 Superfast, V12 engine, red, powerful -->
+                <div class="supercar-item" data-brand="Ferrari">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=400&h=350&fit=crop" alt="Ferrari 812 Superfast" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ferrari 812 Superfast</h3>
+                        <p>800 HP | 340 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Ferrari 812 Superfast', 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Lamborghini Huracán Sterrato, SUV supercar, rugged -->
+                <div class="supercar-item" data-brand="Lamborghini">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=350&fit=crop" alt="Lamborghini Huracán Sterrato" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lamborghini Huracán Sterrato</h3>
+                        <p>640 HP | 325 km/h</p>
+                        <button class="btn btn-sm btn-light" onclick="openSupercarModal('Lamborghini Huracán Sterrato', 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supercar Modal -->
+    <div class="modal fade" id="supercarModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Supercar Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Supercar" class="img-fluid w-100" loading="lazy">
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="downloadBtn" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>City of Cars</h5>
+                    <p>Your premier automotive platform</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="specs.html">Specifications</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center text-footer1">
+                <p>&copy; 2024 City of Cars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/supercars.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Electric Cars Section - Future of sustainable transportation">
+    <title>Electric Cars - City of Cars</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-car-side"></i> CITY OF CARS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">All Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="supercars.html">Supercars</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="electric.html">Electric</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wallpapers.html">Wallpapers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="specs.html">Specs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="parts.html">Parts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="city-cars.html">City Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Electric Cars Section</h1>
+        <p>The future of sustainable automotive technology</p>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="electricSearch" placeholder="Search electric cars...">
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="electricBrand">
+                        <option value="">All Brands</option>
+                        <option value="Tesla">Tesla</option>
+                        <option value="BMW">BMW i Series</option>
+                        <option value="Audi">Audi e-tron</option>
+                        <option value="Porsche">Porsche Taycan</option>
+                        <option value="Lucid">Lucid Air</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary w-100" id="resetFilters">Reset Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Electric Cars Gallery -->
+    <section class="gallery-section py-5">
+        <div class="container">
+            <div class="gallery-grid" id="electricGallery">
+                <!-- Image prompt: Tesla Model S Plaid, black electric sedan, futuristic, sleek -->
+                <div class="electric-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=400&h=350&fit=crop" alt="Tesla Model S" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Model S Plaid</h3>
+                        <p>1020 HP | 200 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Tesla Model S Plaid', 'https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Tesla Model 3, white electric car, minimalist design -->
+                <div class="electric-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1552542521-5f96e6e6e282?w=400&h=350&fit=crop" alt="Tesla Model 3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Model 3</h3>
+                        <p>450 HP | 560 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Tesla Model 3', 'https://images.unsplash.com/photo-1552542521-5f96e6e6e282?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: BMW i7, luxury electric sedan, elegant design -->
+                <div class="electric-item" data-brand="BMW">
+                    <img src="https://images.unsplash.com/photo-1617654112368-307921291f42?w=400&h=350&fit=crop" alt="BMW i7" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>BMW i7 Electric</h3>
+                        <p>516 HP | 600 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('BMW i7 Electric', 'https://images.unsplash.com/photo-1617654112368-307921291f42?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Audi e-tron GT, electric grand tourer, sporty design -->
+                <div class="electric-item" data-brand="Audi">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=350&fit=crop" alt="Audi e-tron GT" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Audi e-tron GT</h3>
+                        <p>630 HP | 490 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Audi e-tron GT', 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Porsche Taycan, electric sports car, aggressive -->
+                <div class="electric-item" data-brand="Porsche">
+                    <img src="https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=400&h=350&fit=crop" alt="Porsche Taycan" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Porsche Taycan Turbo</h3>
+                        <p>938 HP | 512 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Porsche Taycan Turbo', 'https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Mercedes EQS, luxury electric sedan, premium design -->
+                <div class="electric-item" data-brand="Mercedes">
+                    <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=350&fit=crop" alt="Mercedes EQS" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mercedes EQS</h3>
+                        <p>516 HP | 700 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Mercedes EQS', 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Lucid Air, luxury electric sedan, aerodynamic design -->
+                <div class="electric-item" data-brand="Lucid">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c3ff86eba?w=400&h=350&fit=crop" alt="Lucid Air" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lucid Air Sapphire</h3>
+                        <p>1234 HP | 650 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Lucid Air Sapphire', 'https://images.unsplash.com/photo-1605559424843-9e4c3ff86eba?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Tesla Model X, black electric SUV, spacious interior -->
+                <div class="electric-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=350&fit=crop" alt="Tesla Model X" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Model X Plaid</h3>
+                        <p>1020 HP | 680 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Tesla Model X Plaid', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Jaguar I-PACE, electric SUV, futuristic, sleek -->
+                <div class="electric-item" data-brand="Jaguar">
+                    <img src="https://images.unsplash.com/photo-1493521338514-e1a9adda3d65?w=400&h=350&fit=crop" alt="Jaguar I-PACE" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Jaguar I-PACE</h3>
+                        <p>594 HP | 480 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Jaguar I-PACE', 'https://images.unsplash.com/photo-1493521338514-e1a9adda3d65?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: BMW i4, electric sedan, premium quality -->
+                <div class="electric-item" data-brand="BMW">
+                    <img src="https://images.unsplash.com/photo-1617654112368-307921291f42?w=400&h=350&fit=crop" alt="BMW i4" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>BMW i4 M50</h3>
+                        <p>536 HP | 600 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('BMW i4 M50', 'https://images.unsplash.com/photo-1617654112368-307921291f42?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Hyundai Ioniq 6, electric sedan, innovative design -->
+                <div class="electric-item" data-brand="Hyundai">
+                    <img src="https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=400&h=350&fit=crop" alt="Hyundai Ioniq 6" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Hyundai Ioniq 6</h3>
+                        <p>320 HP | 600 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Hyundai Ioniq 6', 'https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Kia EV9, electric SUV, spacious, family-oriented -->
+                <div class="electric-item" data-brand="Kia">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=350&fit=crop" alt="Kia EV9" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Kia EV9</h3>
+                        <p>384 HP | 540 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Kia EV9', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Chevrolet Silverado EV, electric truck, powerful -->
+                <div class="electric-item" data-brand="Chevrolet">
+                    <img src="https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=400&h=350&fit=crop" alt="Chevrolet Silverado EV" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Chevrolet Silverado EV</h3>
+                        <p>775 HP | 640 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Chevrolet Silverado EV', 'https://images.unsplash.com/photo-1507950547674-4fdf10e77bfd?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Tesla Roadster, electric sports car, futuristic -->
+                <div class="electric-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=400&h=350&fit=crop" alt="Tesla Roadster" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Roadster</h3>
+                        <p>1000 HP | 1000 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Tesla Roadster', 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Rivian R1S, electric adventure SUV, rugged elegant -->
+                <div class="electric-item" data-brand="Rivian">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=350&fit=crop" alt="Rivian R1S" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Rivian R1S</h3>
+                        <p>825 HP | 640 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Rivian R1S', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Lotus Eletre, electric luxury SUV, premium design -->
+                <div class="electric-item" data-brand="Lotus">
+                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b83ad38?w=400&h=350&fit=crop" alt="Lotus Eletre" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Lotus Eletre</h3>
+                        <p>645 HP | 600 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Lotus Eletre', 'https://images.unsplash.com/photo-1549399542-7e3f8b83ad38?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Fisker Ocean, electric SUV, sleek design, futuristic -->
+                <div class="electric-item" data-brand="Fisker">
+                    <img src="https://images.unsplash.com/photo-1493521338514-e1a9adda3d65?w=400&h=350&fit=crop" alt="Fisker Ocean" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Fisker Ocean</h3>
+                        <p>540 HP | 590 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Fisker Ocean', 'https://images.unsplash.com/photo-1493521338514-e1a9adda3d65?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Subaru Solterra, electric SUV, rugged, reliable design -->
+                <div class="electric-item" data-brand="Subaru">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=350&fit=crop" alt="Subaru Solterra" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Subaru Solterra</h3>
+                        <p>311 HP | 565 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Subaru Solterra', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Nissan Ariya, electric sedan/crossover, modern design -->
+                <div class="electric-item" data-brand="Nissan">
+                    <img src="https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=400&h=350&fit=crop" alt="Nissan Ariya" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Nissan Ariya</h3>
+                        <p>389 HP | 610 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Nissan Ariya', 'https://images.unsplash.com/photo-1602524206684-88c5ff7ae288?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Genesis GV60, electric luxury crossover, elegant -->
+                <div class="electric-item" data-brand="Genesis">
+                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b83ad38?w=400&h=350&fit=crop" alt="Genesis GV60" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Genesis GV60</h3>
+                        <p>516 HP | 600 km Range</p>
+                        <button class="btn btn-sm btn-light" onclick="openElectricModal('Genesis GV60', 'https://images.unsplash.com/photo-1549399542-7e3f8b83ad38?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Electric Modal -->
+    <div class="modal fade" id="electricModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Electric Car Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="Electric Car" class="img-fluid w-100" loading="lazy">
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="downloadBtn" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>City of Cars</h5>
+                    <p>Your premier automotive platform</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="specs.html">Specifications</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center text-footer1">
+                <p>&copy; 2024 City of Cars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/electric.js"></script>
+</body>
+</html>

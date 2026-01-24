@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="City of Cars - Premium Car Platform with stunning galleries, specs, and community">
+    <meta name="keywords" content="cars, supercars, electric cars, car gallery, automotive">
+    <meta name="theme-color" content="#1a1a2e">
+    
+    <title>City of Cars - Premium Automotive Platform</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="spinner">
+            <div class="spinner-ring"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-car-side"></i> CITY OF CARS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">All Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="supercars.html">Supercars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="electric.html">Electric</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wallpapers.html">Wallpapers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="specs.html">Specs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="parts.html">Parts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="city-cars.html">City Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="./images/181533-866999835_tiny.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">Welcome to City of Cars</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Experience the Ultimate Automotive Platform</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="gallery.html" class="btn btn-primary btn-lg">Explore Gallery</a>
+                <a href="#featured" class="btn btn-outline-light btn-lg">Scroll Down</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center mb-4">Find Your Perfect Car</h2>
+                    <div class="search-bar-wrapper">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search by brand, model...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <select class="form-select" id="brandFilter">
+                        <option value="">All Brands</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="Tesla">Tesla</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Porsche">Porsche</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="fuelFilter">
+                        <option value="">All Fuels</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" id="minPrice" placeholder="Min Price">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" id="maxPrice" placeholder="Max Price">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cars Slider -->
+    <section class="featured-section py-5" id="featured">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Featured Cars</h2>
+            <div class="carousel slide" id="featuredCarousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="featured-car-card">
+                            <img src="./images/Ferrari 812.jpg" alt="Featured Car" loading="lazy">
+                            <div class="featured-car-info">
+                                <h3>Ferrari 812 Competizione</h3>
+                                <p class="text-muted">Ultimate Italian Performance</p>
+                                <div class="specs-row">
+                                    <span><i class="fas fa-tachometer-alt"></i> 340 km/h</span>
+                                    <span><i class="fas fa-bolt"></i> 819 HP</span>
+                                </div>
+                                <a href="specs.html" class="btn btn-primary mt-3">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="featured-car-card">
+                            <img src="./images/lambo_revol.jpg" alt="Featured Car" loading="lazy">
+                            <div class="featured-car-info">
+                                <h3>Lamborghini Revuelto</h3>
+                                <p class="text-muted">Hybrid Supercar Innovation</p>
+                                <div class="specs-row">
+                                    <span><i class="fas fa-tachometer-alt"></i> 350 km/h</span>
+                                    <span><i class="fas fa-bolt"></i> 1001 HP</span>
+                                </div>
+                                <a href="specs.html" class="btn btn-primary mt-3">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="featured-car-card">
+                            <img src="./images/tesla_model_s.jpg" alt="Featured Car" loading="lazy">
+                            <div class="featured-car-info">
+                                <h3>Tesla Model S Plaid</h3>
+                                <p class="text-muted">Electric Performance Legend</p>
+                                <div class="specs-row">
+                                    <span><i class="fas fa-tachometer-alt"></i> 322 km/h</span>
+                                    <span><i class="fas fa-bolt"></i> 1020 HP</span>
+                                </div>
+                                <a href="specs.html" class="btn btn-primary mt-3">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Carousel -->
+    <section class="brands-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Top Brands</h2>
+            <div class="brands-carousel">
+                <div class="brand-card" data-aos="zoom-in">
+                    <img src="./images/ferrari_logo.png" alt="Ferrari" loading="lazy">
+                </div>
+                <div class="brand-card" data-aos="zoom-in">
+                    <img src="./images/lambo_logo.png" alt="Lamborghini" loading="lazy">
+                </div>
+                <div class="brand-card" data-aos="zoom-in">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_logo.png/1200px-Tesla_logo.png" alt="Tesla" loading="lazy">
+                </div>
+                <div class="brand-card" data-aos="zoom-in">
+                    <img src="./images/bmw_logo.png" alt="BMW" loading="lazy">
+                </div>
+                <div class="brand-card" data-aos="zoom-in">
+                    <img src="./images/porsche_logo.png" alt="Porsche" loading="lazy">
+                </div>
+                <div class="brand-card" data-aos="zoom-in">
+                    <img src="./images/mclaren_logo.png" alt="McLaren" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section with Animated Counters -->
+    <section class="stats-section py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="stat-card">
+                        <h3 class="counter" data-target="5000">0</h3>
+                        <p>Premium Cars</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="stat-card">
+                        <h3 class="counter" data-target="120000">0</h3>
+                        <p>Car Enthusiasts</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="stat-card">
+                        <h3 class="counter" data-target="50">0</h3>
+                        <p>Top Brands</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="cta-card text-center">
+                <h2>Ready to Explore?</h2>
+                <p>Browse thousands of premium cars and find your dream vehicle</p>
+                <a href="gallery.html" class="btn btn-primary btn-lg">Start Exploring Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>City of Cars</h5>
+                    <p>Your premier automotive platform</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="specs.html">Specifications</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center text-footer1">
+                <p>&copy; 2024 City of Cars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="City Cars Collection - Urban vehicles for everyday driving">
+    <title>City Cars - City of Cars</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-car-side"></i> CITY OF CARS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">All Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="supercars.html">Supercars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="electric.html">Electric</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wallpapers.html">Wallpapers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="specs.html">Specs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="parts.html">Parts</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="city-cars.html">City Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>City Cars Collection</h1>
+        <p>Perfect vehicles for urban driving and daily commutes</p>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="citySearch" placeholder="Search city cars...">
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="cityBrand">
+                        <option value="">All Brands</option>
+                        <option value="Tesla">Tesla</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Audi">Audi</option>
+                        <option value="Porsche">Porsche</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary w-100" id="resetFilters">Reset Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Cars Gallery -->
+    <section class="gallery-section py-5">
+        <div class="container">
+            <div class="gallery-grid" id="cityGallery">
+                <!-- Image prompt: Tesla Model 3, sleek white electric car, urban street, modern -->
+                <div class="city-car-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1552542521-5f96e6e6e282?w=400&h=350&fit=crop" alt="Tesla Model 3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Model 3</h3>
+                        <p>Perfect for daily commutes</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Tesla Model 3', 'https://images.unsplash.com/photo-1552542521-5f96e6e6e282?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: BMW i4, electric sedan, premium design, city parking -->
+                <div class="city-car-item" data-brand="BMW">
+                    <img src="https://images.unsplash.com/photo-1617654112368-307921291f42?w=400&h=350&fit=crop" alt="BMW i4" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>BMW i4</h3>
+                        <p>Luxury urban mobility</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('BMW i4', 'https://images.unsplash.com/photo-1617654112368-307921291f42?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Mercedes-Benz EQE, electric sedan, stylish, city streets -->
+                <div class="city-car-item" data-brand="Mercedes">
+                    <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=350&fit=crop" alt="Mercedes EQE" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mercedes EQE</h3>
+                        <p>Executive city car</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Mercedes EQE', 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Audi e-tron Compact, small electric SUV, urban style -->
+                <div class="city-car-item" data-brand="Audi">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=350&fit=crop" alt="Audi e-tron" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Audi e-tron Compact</h3>
+                        <p>Smart urban solution</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Audi e-tron Compact', 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Porsche Taycan Cross Turismo, electric wagon, versatile -->
+                <div class="city-car-item" data-brand="Porsche">
+                    <img src="https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=400&h=350&fit=crop" alt="Porsche Taycan" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Porsche Taycan Cross Turismo</h3>
+                        <p>Sporty & versatile</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Porsche Taycan Cross Turismo', 'https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Tesla Model Y Compact, white SUV, compact size, family -->
+                <div class="city-car-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=350&fit=crop" alt="Tesla Model Y" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Model Y Compact</h3>
+                        <p>Family-friendly SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Tesla Model Y Compact', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: BMW X1, compact luxury SUV, white, practical -->
+                <div class="city-car-item" data-brand="BMW">
+                    <img src="https://images.unsplash.com/photo-1617654112368-307921291f42?w=400&h=350&fit=crop" alt="BMW X1" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>BMW X1</h3>
+                        <p>Compact luxury SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('BMW X1', 'https://images.unsplash.com/photo-1617654112368-307921291f42?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Mercedes-Benz GLA, urban SUV, compact, stylish, black -->
+                <div class="city-car-item" data-brand="Mercedes">
+                    <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=350&fit=crop" alt="Mercedes GLA" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mercedes GLA</h3>
+                        <p>Urban compact SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Mercedes GLA', 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Audi Q2, small luxury SUV, silver, sophisticated -->
+                <div class="city-car-item" data-brand="Audi">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=350&fit=crop" alt="Audi Q2" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Audi Q2</h3>
+                        <p>Small urban SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Audi Q2', 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Porsche Macan, compact luxury SUV, red, sporty -->
+                <div class="city-car-item" data-brand="Porsche">
+                    <img src="https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=400&h=350&fit=crop" alt="Porsche Macan" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Porsche Macan</h3>
+                        <p>Sporty compact SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Porsche Macan', 'https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Tesla Model 2, future compact car, sleek, affordable -->
+                <div class="city-car-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1552542521-5f96e6e6e282?w=400&h=350&fit=crop" alt="Tesla Model 2" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Model 2 (Coming Soon)</h3>
+                        <p>Affordable EV for everyone</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Tesla Model 2', 'https://images.unsplash.com/photo-1552542521-5f96e6e6e282?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: BMW 1 Series, compact hatchback, blue, fun to drive -->
+                <div class="city-car-item" data-brand="BMW">
+                    <img src="https://images.unsplash.com/photo-1617654112368-307921291f42?w=400&h=350&fit=crop" alt="BMW 1 Series" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>BMW 1 Series</h3>
+                        <p>Compact performance hatchback</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('BMW 1 Series', 'https://images.unsplash.com/photo-1617654112368-307921291f42?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Mercedes-Benz A-Class, premium compact sedan, elegant -->
+                <div class="city-car-item" data-brand="Mercedes">
+                    <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=350&fit=crop" alt="Mercedes A-Class" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mercedes A-Class</h3>
+                        <p>Premium compact sedan</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Mercedes A-Class', 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Audi A3, compact premium sedan, refined, practical -->
+                <div class="city-car-item" data-brand="Audi">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=350&fit=crop" alt="Audi A3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Audi A3</h3>
+                        <p>Premium compact sedan</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Audi A3', 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Porsche 911 Carrera, iconic sports car, silver, urban -->
+                <div class="city-car-item" data-brand="Porsche">
+                    <img src="https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=400&h=350&fit=crop" alt="Porsche 911 Carrera" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Porsche 911 Carrera</h3>
+                        <p>Ultimate city sports car</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Porsche 911 Carrera', 'https://images.unsplash.com/photo-1552541070-4be149e4b4fe?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Tesla Model Y Long Range, white electric SUV, spacious -->
+                <div class="city-car-item" data-brand="Tesla">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=350&fit=crop" alt="Tesla Model Y LR" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Tesla Model Y LR</h3>
+                        <p>Spacious family SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Tesla Model Y LR', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: BMW iX1, electric compact SUV, white, modern -->
+                <div class="city-car-item" data-brand="BMW">
+                    <img src="https://images.unsplash.com/photo-1617654112368-307921291f42?w=400&h=350&fit=crop" alt="BMW iX1" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>BMW iX1</h3>
+                        <p>Electric compact SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('BMW iX1', 'https://images.unsplash.com/photo-1617654112368-307921291f42?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image prompt: Mercedes EQA, electric compact SUV, premium, city-ready -->
+                <div class="city-car-item" data-brand="Mercedes">
+                    <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=350&fit=crop" alt="Mercedes EQA" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Mercedes EQA</h3>
+                        <p>Electric compact SUV</p>
+                        <button class="btn btn-sm btn-light" onclick="openCityModal('Mercedes EQA', 'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=800&fit=crop')">
+                            <i class="fas fa-expand"></i> View
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- City Modal -->
+    <div class="modal fade" id="cityModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">City Car</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="City Car" class="img-fluid w-100" loading="lazy">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Request Test Drive</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>City of Cars</h5>
+                    <p>Your premier automotive platform</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="specs.html">Specifications</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center text-footer1">
+                <p>&copy; 2024 City of Cars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/city-cars.js"></script>
+</body>
+</html>
