@@ -79,6 +79,7 @@ city-of-cars/
 │   ├── city-cars.js
 │   ├── community.js
 │   └── about.js
+├── images
 └── README.md
 ```
 
