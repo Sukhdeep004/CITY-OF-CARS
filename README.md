@@ -1,13 +1,7 @@
 # CITY OF CARS - Premium Automotive Platform
 
-A complete, production-ready vanilla HTML/CSS/JavaScript website for car enthusiasts with stunning galleries, detailed specifications, and an engaging community.
+A complete, production-ready vanilla HTML/CSS/JavaScript/Bootstrap website for car enthusiasts with stunning galleries, detailed specifications, and an engaging community.
 
-## ✓ Latest Updates - All Issues Fixed!
-
-**✓ Gallery Modal** - View button now opens properly  
-**✓ Dark Mode** - Contact info fully visible in dark mode  
-**✓ Image Loading** - All images load from stable sources  
-**✓ Hero Video** - Premium car background video plays smoothly
 
 ## Features
 
@@ -226,6 +220,12 @@ Built with:
 - Google Fonts
 - Unsplash Images
 - AOS Animations
+
+## 👤 Author
+
+**Sukhdeep Singh**
+- GitHub: https://github.com/Sukhdeep004
+- Email: sukhdeepsingh0221@gmail.com
 
 ---
 
