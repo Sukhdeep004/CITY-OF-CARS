@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Car Community - Connect with fellow car enthusiasts">
     <title>Community & Social - City of Cars</title>
-    
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBQRST9S3Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DBQRST9S3Z');
+    </script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
@@ -49,7 +64,9 @@
         <div class="container">
             <div class="create-post-card">
                 <h3>Share Your Passion</h3>
-                <textarea class="form-control" id="postText" placeholder="Share your thoughts about cars, upload photos, or ask the community..." rows="4"></textarea>
+                <textarea class="form-control" id="postText"
+                    placeholder="Share your thoughts about cars, upload photos, or ask the community..."
+                    rows="4"></textarea>
                 <button class="btn btn-primary mt-3" id="postBtn">Post</button>
             </div>
         </div>
@@ -62,7 +79,8 @@
                 <!-- Post 1 -->
                 <div class="community-post">
                     <div class="post-header">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop" alt="User Avatar" class="user-avatar" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop"
+                            alt="User Avatar" class="user-avatar" loading="lazy">
                         <div class="user-info">
                             <h5>John Automotive</h5>
                             <p class="text-muted">@john_automotive • 2 hours ago</p>
@@ -70,8 +88,10 @@
                         <button class="btn btn-outline-secondary btn-sm">Follow</button>
                     </div>
                     <div class="post-content">
-                        <p>Just finished a 500 km road trip in my Ferrari! The handling is absolutely incredible on mountain roads. Who else loves the thrill of driving a supercar on scenic routes?</p>
-                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=500&h=350&fit=crop" alt="Post Image" class="post-image" loading="lazy">
+                        <p>Just finished a 500 km road trip in my Ferrari! The handling is absolutely incredible on
+                            mountain roads. Who else loves the thrill of driving a supercar on scenic routes?</p>
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=500&h=350&fit=crop"
+                            alt="Post Image" class="post-image" loading="lazy">
                     </div>
                     <div class="post-actions">
                         <button class="btn btn-sm btn-light like-btn" onclick="likePost(this)">
@@ -89,7 +109,8 @@
                 <!-- Post 2 -->
                 <div class="community-post">
                     <div class="post-header">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop" alt="User Avatar" class="user-avatar" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop"
+                            alt="User Avatar" class="user-avatar" loading="lazy">
                         <div class="user-info">
                             <h5>Sarah Speed</h5>
                             <p class="text-muted">@sarah_speed • 4 hours ago</p>
@@ -97,7 +118,8 @@
                         <button class="btn btn-outline-secondary btn-sm">Follow</button>
                     </div>
                     <div class="post-content">
-                        <p>Just upgraded my Tesla Model S with new wheels and a lowering kit. The stance looks incredible! Check out the transformation:</p>
+                        <p>Just upgraded my Tesla Model S with new wheels and a lowering kit. The stance looks
+                            incredible! Check out the transformation:</p>
                         <img src="./images/tesla_model_s.jpg" alt="Post Image" class="post-image" loading="lazy">
                     </div>
                     <div class="post-actions">
@@ -116,7 +138,8 @@
                 <!-- Post 3 -->
                 <div class="community-post">
                     <div class="post-header">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop" alt="User Avatar" class="user-avatar" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop"
+                            alt="User Avatar" class="user-avatar" loading="lazy">
                         <div class="user-info">
                             <h5>Mike Racer</h5>
                             <p class="text-muted">@mike_racer • 6 hours ago</p>
@@ -124,7 +147,8 @@
                         <button class="btn btn-outline-secondary btn-sm">Follow</button>
                     </div>
                     <div class="post-content">
-                        <p>Track day at the race circuit! Nothing beats the feeling of pushing a Lamborghini to its limits on a closed course. Safety first, thrills second! 🏁</p>
+                        <p>Track day at the race circuit! Nothing beats the feeling of pushing a Lamborghini to its
+                            limits on a closed course. Safety first, thrills second! 🏁</p>
                         <img src="./images/lambo-revu.jpg" alt="Post Image" class="post-image" loading="lazy">
                     </div>
                     <div class="post-actions">
@@ -143,7 +167,8 @@
                 <!-- Post 4 -->
                 <div class="community-post">
                     <div class="post-header">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop" alt="User Avatar" class="user-avatar" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop"
+                            alt="User Avatar" class="user-avatar" loading="lazy">
                         <div class="user-info">
                             <h5>Emma Classic</h5>
                             <p class="text-muted">@emma_classic • 8 hours ago</p>
@@ -151,7 +176,8 @@
                         <button class="btn btn-outline-secondary btn-sm">Follow</button>
                     </div>
                     <div class="post-content">
-                        <p>Restored my vintage Porsche 911 after 2 years of work! The restoration process was challenging but so rewarding. Every detail is perfect. Thoughts?</p>
+                        <p>Restored my vintage Porsche 911 after 2 years of work! The restoration process was
+                            challenging but so rewarding. Every detail is perfect. Thoughts?</p>
                         <img src="./images/P911.jpg" alt="Post Image" class="post-image" loading="lazy">
                     </div>
                     <div class="post-actions">
@@ -170,7 +196,8 @@
                 <!-- Post 5 -->
                 <div class="community-post">
                     <div class="post-header">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop" alt="User Avatar" class="user-avatar" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop"
+                            alt="User Avatar" class="user-avatar" loading="lazy">
                         <div class="user-info">
                             <h5>David Motors</h5>
                             <p class="text-muted">@david_motors • 10 hours ago</p>
@@ -178,7 +205,8 @@
                         <button class="btn btn-outline-secondary btn-sm">Follow</button>
                     </div>
                     <div class="post-content">
-                        <p>Been thinking about getting my first high-performance car. Should I go with a used Ferrari or invest in a new Lamborghini? Looking for advice from the community!</p>
+                        <p>Been thinking about getting my first high-performance car. Should I go with a used Ferrari or
+                            invest in a new Lamborghini? Looking for advice from the community!</p>
                     </div>
                     <div class="post-actions">
                         <button class="btn btn-sm btn-light like-btn" onclick="likePost(this)">
@@ -223,10 +251,14 @@
                 <div class="col-md-3">
                     <h5>Follow Us</h5>
                     <div class="social-links">
-                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/Sukhdeep0004?t=tMtMPPhwS-i0hpK3bpZm5Q&s=09" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -246,4 +278,5 @@
     <script src="js/main.js"></script>
     <script src="js/community.js"></script>
 </body>
+
 </html>
