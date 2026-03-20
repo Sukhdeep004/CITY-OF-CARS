@@ -22,7 +22,6 @@ A complete, production-ready vanilla HTML/CSS/JavaScript/Bootstrap website for c
 - Gradient buttons
 - Modern animations
 - Smooth transitions
-- Dark/Light mode toggle
 - Fully responsive design
 - Mobile-first approach
 
