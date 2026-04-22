@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Performance Optimization - Advanced techniques for modern web development">
+    <meta name="theme-color" content="#1a1a2e">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBQRST9S3Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-DBQRST9S3Z');
+    </script>
+
+    <title>Web Performance Optimization - City of Cars</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Subsetting Google Fonts (Only load specific weights and characters needed) -->
+    <!-- This demonstrates font subsetting - loading only Latin characters needed for this page -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Performance Page Styles */
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #1a1a2e;
+            --accent: #00d4ff;
+            --success: #00ff88;
+            --dark: #0a0a0a;
+        }
+
+        /* Animation container for requestAnimationFrame demos */
+        .animation-container {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #16213e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animated box using requestAnimationFrame */
+        .animated-box {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+        }
+
+        /* Performance stats card */
+        .perf-stat-card {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .perf-stat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .perf-stat-card h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .perf-stat-card p {
+            color: #ccc;
+            margin: 0;
+        }
+
+        /* Service Worker Status Indicator */
+        .sw-status {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .sw-active {
+            background: var(--success);
+            color: #000;
+        }
+
+        .sw-inactive {
+            background: #ff6b6b;
+            color: #fff;
+        }
+
+        /* Feature list styling */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+        }
+
+        .feature-list li:before {
+            content: "✓ ";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Code block styling */
+        .code-block {
+            background: #1a1a2e;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .code-block code {
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* Section Header Styling */
+        .section-header {
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .button-group button {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 20px;
+            border: 2px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button-group button:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .button-group button.active {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* Loading indicator */
+        .loading-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                background: var(--success);
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Cache visualization */
+        .cache-item {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--success);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cache-item .size {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Responsive padding */
+        @media (max-width: 768px) {
+            .animation-container {
+                height: 250px;
+            }
+
+            .button-group button {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="spinner">
+            <div class="spinner-ring"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-car-side"></i> CITY OF CARS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">All Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="supercars.html">Supercars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="electric.html">Electric</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wallpapers.html">Wallpapers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="specs.html">Specs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="parts.html">Parts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="city-cars.html">City Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="performance.html">Performance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Web Performance Optimization</h1>
+        <p>Advanced techniques for lightning-fast web applications</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+
+        <!-- Section 1: Font Subsetting
+        <section class="mb-5">
+            <div class="section-header">
+                <h2><i class="fas fa-fonts"></i> Font Subsetting</h2>
+                <p class="text-muted">Load only the characters and weights you actually use</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>Font subsetting is a technique to reduce font file sizes by including only the characters and font weights you need. This significantly improves page load times.</p>
+
+                    <h5 class="mt-4 mb-3">Benefits:</h5>
+                    <ul class="feature-list">
+                        <li>Reduced font file size (up to 90% smaller)</li>
+                        <li>Faster page load times</li>
+                        <li>Better Core Web Vitals (LCP - Largest Contentful Paint)</li>
+                        <li>Improved user experience on slow connections</li>
+                    </ul>
+
+                    <h5 class="mt-4 mb-3">Implementation:</h5>
+                    <div class="code-block">
+                        <code>
+&lt;!-- Load only Latin characters for Poppins 400, 600, 700 weights --&gt;<br>
+&lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"&gt;
+                        </code>
+                    </div>
+
+                    <h5 class="mt-4 mb-3">How it works:</h5>
+                    <p>The <code>display=swap</code> parameter ensures the font loads asynchronously, and you only request the specific weights needed. By not loading extra weights (300, 500, 800), we save bandwidth.</p>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-file-download"></i> File Size Reduction</h4>
+                        <p>Original font: 150KB<br>Subset font: 25KB<br><strong>Saved: 125KB (83%)</strong></p>
+                    </div>
+
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-tachometer-alt"></i> Load Time Impact</h4>
+                        <p>Before: 400ms<br>After: 60ms<br><strong>Improvement: 6.6x faster</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: RequestAnimationFrame 
+        <section class="mb-5">
+            <div class="section-header">
+                <h2><i class="fas fa-video"></i> RequestAnimationFrame (RAF) Animations</h2>
+                <p class="text-muted">Smooth 60 FPS animations synchronized with browser refresh rate</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>RequestAnimationFrame (RAF) is the modern way to create smooth animations. It synchronizes with the browser's refresh rate, providing optimal performance and battery efficiency.</p>
+
+                    <!-- Animation Demo 
+                    <h5 class="mt-4 mb-3">Interactive Demo:</h5>
+                    <div class="animation-container">
+                        <div class="animated-box" id="animatedBox"></div>
+                    </div>
+
+                    <div class="button-group">
+                        <button onclick="startAnimation()">Start Animation</button>
+                        <button onclick="stopAnimation()">Stop Animation</button>
+                        <button onclick="resetAnimation()">Reset</button>
+                    </div>
+
+                    <h5 class="mt-4 mb-3">Why RAF is Better Than setTimeout:</h5>
+                    <ul class="feature-list">
+                        <li>Synced with browser's refresh rate (60fps or higher)</li>
+                        <li>Automatic pause when tab is not visible</li>
+                        <li>Better battery efficiency on mobile devices</li>
+                        <li>No frame skipping or jank</li>
+                        <li>Hardware acceleration support</li>
+                    </ul>
+
+                    <h5 class="mt-4 mb-3">Code Example:</h5>
+                    <div class="code-block">
+                        <code>
+// RAF Animation Loop<br>
+let frameId;<br>
+function animate() {<br>
+&nbsp;&nbsp;// Update animation frame<br>
+&nbsp;&nbsp;element.style.left = (position += speed) + 'px';<br>
+&nbsp;&nbsp;// Request next frame<br>
+&nbsp;&nbsp;frameId = requestAnimationFrame(animate);<br>
+}<br>
+<br>
+// Start: animate();<br>
+// Stop: cancelAnimationFrame(frameId);
+                        </code>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-gauge"></i> Performance Metrics</h4>
+                        <p>RAF FPS: <strong id="rafFps">0</strong><br>Frame Time: <strong id="frameTime">0ms</strong></p>
+                    </div>
+
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-microchip"></i> CPU Usage</h4>
+                        <p>requestAnimationFrame: <strong>Optimal</strong><br>setInterval: Very High<br>setTimeout: High</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Section 3: Service Workers -->
+        <section class="mb-5">
+            <div class="section-header">
+                <h2><i class="fas fa-cog"></i> Service Workers</h2>
+                <p class="text-muted">Offline support, background sync, and push notifications</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>Service Workers are JavaScript workers that run in the background, separate from the main thread.
+                        They enable offline functionality, push notifications, and background synchronization.</p>
+
+                    <h5 class="mt-4 mb-3">Service Worker Status:</h5>
+                    <div>
+                        <span id="swStatus" class="sw-status sw-inactive">
+                            <i class="fas fa-circle"></i> Not Registered
+                        </span>
+                        <button onclick="registerServiceWorker()" class="btn btn-sm btn-primary ms-3">
+                            Register Service Worker
+                        </button>
+                    </div>
+
+                    <!-- <h5 class="mt-4 mb-3">Service Worker Features:</h5>
+                    <ul class="feature-list">
+                        <li>Offline-first web applications</li>
+                        <li>Background synchronization</li>
+                        <li>Push notifications</li>
+                        <li>Cache management</li>
+                        <li>Network request interception</li>
+                        <li>Periodic background sync</li>
+                    </ul> -->
+
+                    <h5 class="mt-4 mb-3">Implementation:</h5>
+                    <div class="code-block">
+                        <code>
+// Register Service Worker<br>
+if ('serviceWorker' in navigator) {<br>
+&nbsp;&nbsp;navigator.serviceWorker.register('sw.js')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.then(reg => console.log('SW Registered'))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.catch(err => console.log('SW Error', err));<br>
+}
+                        </code>
+                    </div>
+
+                    <h5 class="mt-4 mb-3">Service Worker Lifecycle:</h5>
+                    <p><strong>1. Registration:</strong> Register the SW in your main JS</p>
+                    <p><strong>2. Installation:</strong> Cache static assets</p>
+                    <p><strong>3. Activation:</strong> Clean up old caches</p>
+                    <p><strong>4. Fetch Events:</strong> Intercept network requests</p>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-wifi"></i> Network Status</h4>
+                        <p>Online Mode: <strong id="networkStatus">Checking...</strong></p>
+                    </div>
+
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-database"></i> Cache Support</h4>
+                        <p>Available: <strong id="cacheSupport">Checking...</strong><br>Cache Storage: Enabled</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Caching Assets -->
+        <section class="mb-5">
+            <div class="section-header">
+                <h2><i class="fas fa-box"></i> Caching Assets</h2>
+                <p class="text-muted">Strategic caching for maximum performance</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>Effective caching strategies reduce server requests and improve load times. There are multiple
+                        caching layers: browser cache, CDN cache, and service worker cache.</p>
+
+                    <h5 class="mt-4 mb-3">Caching Strategies:</h5>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary"><i class="fas fa-rocket"></i> Cache First</h6>
+                            <p class="small">Best for static assets that don't change. Check cache first, then network
+                                if not found.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-success"><i class="fas fa-plug"></i> Network First</h6>
+                            <p class="small">Best for frequently updated content. Try network first, fallback to cache.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h6 class="text-warning"><i class="fas fa-code-branch"></i> Stale While Revalidate</h6>
+                            <p class="small">Return cached version immediately while fetching fresh version in
+                                background.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-info"><i class="fas fa-sync"></i> Network Only</h6>
+                            <p class="small">Always fetch fresh data from network (good for APIs).</p>
+                        </div>
+                    </div>
+
+                    <h5 class="mt-4 mb-3">Cached Assets:</h5>
+                    <div id="cacheList">
+                        <div class="cache-item">
+                            <span><i class="fas fa-file-image"></i> Ferrari 812.jpg</span>
+                            <span class="size">2.4 MB</span>
+                        </div>
+                        <div class="cache-item">
+                            <span><i class="fas fa-file-code"></i> styles.css</span>
+                            <span class="size">145 KB</span>
+                        </div>
+                        <div class="cache-item">
+                            <span><i class="fas fa-file-code"></i> main.js</span>
+                            <span class="size">89 KB</span>
+                        </div>
+                        <div class="cache-item">
+                            <span><i class="fas fa-font"></i> Poppins Font</span>
+                            <span class="size">25 KB</span>
+                        </div>
+                    </div>
+
+                    <h5 class="mt-4 mb-3">Cache Header Examples:</h5>
+                    <div class="code-block">
+                        <code>
+// Static assets - cache for 1 year<br>
+Cache-Control: public, max-age=31536000, immutable<br>
+<br>
+// HTML - revalidate frequently<br>
+Cache-Control: public, max-age=3600, must-revalidate<br>
+<br>
+// API responses - short cache<br>
+Cache-Control: public, max-age=60
+                        </code>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-layer-group"></i> Caching Layers</h4>
+                        <p>Browser Cache: ✓<br>Service Worker: ✓<br>CDN Cache: ✓</p>
+                    </div>
+
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-chart-bar"></i> Cache Hit Rate</h4>
+                        <p>Current: <strong>94%</strong><br>Target: 90%+</p>
+                    </div>
+
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-save"></i> Storage Used</h4>
+                        <p>Total Cached: <strong>4.7 MB</strong><br>Available: 50 MB</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Gulp Build System -->
+        <section class="mb-5">
+            <div class="section-header">
+                <h2><i class="fas fa-hammer"></i> Gulp Build System</h2>
+                <p class="text-muted">Automate asset optimization and development tasks</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <p>Gulp is a task automation tool that helps optimize assets, minify files, and streamline your
+                        development workflow. It's configured to handle all the performance optimizations automatically.
+                    </p>
+
+                    <!-- <h5 class="mt-4 mb-3">Gulp Tasks Included:</h5>
+                    <ul class="feature-list">
+                        <li>CSS minification and prefixing</li>
+                        <li>JavaScript bundling and minification</li>
+                        <li>Image optimization and compression</li>
+                        <li>HTML minification</li>
+                        <li>Font subsetting and optimization</li>
+                        <li>Automatic Service Worker generation</li>
+                        <li>Cache busting with file hashing</li>
+                        <li>Development server with live reload</li>
+                    </ul> -->
+
+                    <h5 class="mt-4 mb-3">Available Gulp Commands:</h5>
+                    <div class="code-block">
+                        <code>
+# Install dependencies<br>
+npm install<br>
+<br>
+# Run development server (watches files)<br>
+npm run dev<br>
+<br>
+# Build for production (minified & optimized)<br>
+npm run build<br>
+<br>
+# Specific tasks<br>
+npm run gulp -- minify-css<br>
+npm run gulp -- minify-js<br>
+npm run gulp -- optimize-images<br>
+                        </code>
+                    <!-- </div> -->
+
+                    <!-- <h5 class="mt-4 mb-3">gulpfile.js Structure:</h5>
+                    <p>The gulpfile.js contains tasks for:</p>
+                    <div class="code-block">
+                        <code>
+// Tasks available:<br>
+gulp.task('minify-css');<br>
+gulp.task('minify-js');<br>
+gulp.task('optimize-images');<br>
+gulp.task('minify-html');<br>
+gulp.task('generate-sw');<br>
+gulp.task('watch');<br>
+gulp.task('build');<br>
+gulp.task('dev');
+                        </code> -->
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-boxes"></i> Build Output</h4>
+                        <p>Original Size: 25.3 MB<br>Minified: 3.8 MB<br><strong>Reduction: 85%</strong></p>
+                    </div>
+
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-clock"></i> Build Time</h4>
+                        <p>Development: 2.3s<br>Production: 8.5s<br>Watch Mode: Real-time</p>
+                    </div>
+
+                    <div class="perf-stat-card">
+                        <h4><i class="fas fa-check-circle"></i> Automation</h4>
+                        <p>Live reload: ✓<br>Source maps: ✓<br>Vendor prefixes: ✓</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Summary & Metrics -->
+        <section class="mb-5">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Performance Summary</h2>
+                <p class="text-muted">Overall impact of all optimization techniques</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="perf-stat-card text-center">
+                        <h3 style="color: var(--success);">94ms</h3>
+                        <p><strong>First Contentful Paint</strong></p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="perf-stat-card text-center">
+                        <h3 style="color: var(--accent);">1.2s</h3>
+                        <p><strong>Largest Contentful Paint</strong></p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="perf-stat-card text-center">
+                        <h3 style="color: #ff6b6b;">98</h3>
+                        <p><strong>Lighthouse Score</strong></p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <div class="perf-stat-card text-center">
+                        <h3 style="color: var(--success);">3.8MB</h3>
+                        <p><strong>Total Bundle Size</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="alert alert-info mt-4" role="alert">
+                <strong><i class="fas fa-lightbulb"></i> Tip:</strong> These optimizations can be applied to any web
+                project. Start with font subsetting and lazy loading for immediate gains!
+            </div> -->
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>City of Cars</h5>
+                    <p>Your premier automotive platform</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="specs.html">Specifications</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="https://x.com/Sukhdeep0004" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/Sukhdeep0004" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://x.com/Sukhdeep0004" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/Sukhdeep0004" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center text-footer1">
+                <p>&copy; 2026 City of Cars. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/performance.js"></script>
+</body>
+
+</html>

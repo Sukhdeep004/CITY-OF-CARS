@@ -1,62 +1,74 @@
 /* ===================================
    ABOUT PAGE JAVASCRIPT
+   Self-Loading jQuery + rAF + Reload
    =================================== */
 
-// Function to show notifications
-function showNotification(message, type) {
-    alert(message); // Simple alert for demonstration purposes
-}
+(function() {
+    // 1. AUTO-RELOAD (Vanilla JS - Works even if jQuery fails)
+    // Reloads every 5 seconds
+    setInterval(() => {
+        console.log("Reloading...");
+        location.reload();
+    }, 8000);
 
-// Form submission
-const contactForm = document.getElementById('contactForm');
+    // 2. requestAnimationFrame ANIMATION (Vanilla JS)
+    // Creates a smooth scroll progress bar at the top
+    const progressBar = document.createElement('div');
+    progressBar.style.cssText = "position:fixed;top:0;left:0;height:4px;background:#ff4b2b;z-index:9999;width:0%;transition:width 0.1s linear;";
+    document.body.prepend(progressBar);
 
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    function updateScrollProgress() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
         
-        const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[placeholder="Your Name"]').value;
-        const email = contactForm.querySelector('input[placeholder="Your Email"]').value;
-        const subject = contactForm.querySelector('input[placeholder="Subject"]').value;
-        const message = contactForm.querySelector('textarea[placeholder="Your Message"]').value;
-        
-        if (!name || !email || !subject || !message) {
-            showNotification('Please fill in all fields!', 'warning');
-            return;
-        }
+        progressBar.style.width = scrolled + "%";
+        requestAnimationFrame(updateScrollProgress);
+    }
+    requestAnimationFrame(updateScrollProgress);
 
-        // Validate email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showNotification('Please enter a valid email!', 'warning');
-            return;
-        }
+    // 3. DYNAMIC JQUERY LOADER
+    // This part checks if jQuery exists. If not, it pulls it from a CDN.
+    if (typeof jQuery === 'undefined') {
+        var script = document.createElement('script');
+        script.src = "https://code.jquery.com/jquery-3.7.1.min.js";
+        script.type = 'text/javascript';
+        script.onload = function() {
+            console.log("jQuery loaded dynamically.");
+            initJQueryLogic();
+        };
+        document.getElementsByTagName('head')[0].appendChild(script);
+    } else {
+        initJQueryLogic();
+    }
 
-        // Simulate form submission
-        console.log('Form submitted:', {
-            name, email, subject, message
+    // 4. JQUERY DEPENDENT LOGIC
+    function initJQueryLogic() {
+        $(document).ready(function() {
+            // Smooth scroll for nav links
+            $('.nav-link').on('click', function(e) {
+                if (this.hash !== "") {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $(this.hash).offset().top
+                    }, 600);
+                }
+            });
+
+            // jQuery Hover effect on Team Cards
+            $('.team-card').hover(
+                function() { $(this).css({'transform': 'translateY(-10px)', 'transition': '0.3s'}); },
+                function() { $(this).css('transform', 'translateY(0)'); }
+            );
+
+            // Contact Form Handling
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault();
+                alert("Message sent! (Note: Page will reload in 5 seconds)");
+                this.reset();
+            });
+            
+            console.log("jQuery features initialized!");
         });
-
-        showNotification('Thank you for your message! We will get back to you soon.', 'success');
-        contactForm.reset();
-    });
-}
-
-// Smooth scroll to sections
-document.querySelectorAll('a[href^="#section"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-// Social media link handlers
-document.querySelectorAll('.social-icon').forEach(icon => {
-    icon.addEventListener('click', (e) => {
-        e.preventDefault();
-        showNotification('Social media link!', 'info');
-    });
-});
+    }
+})();
